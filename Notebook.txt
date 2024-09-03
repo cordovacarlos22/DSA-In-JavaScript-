@@ -1,0 +1,17 @@
+DSA In Javascript
+
+##why to learn about DSA in Javascript.
+--big tech companies are seeking for developer that know DSA, also is used to filter Developer 
+when applying for a Tech job.
+
+## DATA Structure: 
+Data Structure is a way of organizing,storing, and accessing data. 
+
+## Algorithm: 
+Is a set of instructions that tell a computer how do to something, or you can also say 
+a STEP-BY-STEP solutino of the problem called algorithm.
+
+## PROBLEM 1 : 
+
+create an  array with5 students names, after that create a function which takes 2 parameters
+(allStudents & studentsNames) iterate over all students and find that specific user "studentName"
