@@ -1,0 +1,68 @@
+DSA In Javascript
+
+##why to learn about DSA in Javascript.
+--big tech companies are seeking for developer that know DSA, also is used to filter Developer 
+when applying for a Tech job.
+other reason to learn about DSA in Javascript: 
+1. Efficient problem Solving
+2. Algorithmic Awareness
+3.Stronger Coding Skills.
+4.Interview Success 
+5.Coding Confidence
+6.Efficient Programming 
+7.Critical Thinking Champion
+
+but the biggest reason to learn about DSA  is that is going to help yout become a :
+PROBLEM SOLVER.
+
+
+
+## DATA Structure: 
+Data Structure is a way of organizing,storing, and accessing data. 
+
+## Algorithm: 
+Is a set of instructions that tell a computer how do to something, or you can also say 
+a STEP-BY-STEP solutino of the problem called algorithm.
+
+## PROBLEM 1 : 
+
+create an  array with5 students names, after that create a function which takes 2 parameters
+(allStudents & studentsNames) iterate over all students and find that specific user "studentName"
+
+
+## curriculum Walkthrough:
+1. BIG O NOTATION 
+2.Analyzing Performance Of Arrays and Objects
+3.Problem Solving Aproach
+4.Problem Solving Patterns
+5.Recursion
+6.Searching Algorithms
+7.Bubble SORT
+8.Selection SORT
+9.Insertion SORT
+10.Merge SORT
+11.Quick SORT.
+12.RADIX SORT
+13.INTRO TO DATA Structure
+14.single linked list 
+15. doubly linked lists 
+16.stacks & queues
+17.Binary Search Trees.
+18.TREE TRAVERSAL.
+19.binary heaps
+20.hast tables
+21.graphs
+22.graph traversal 
+23.dijkstra's algorithm
+
+
+
+
+
+
+
+
+
+
+
+
