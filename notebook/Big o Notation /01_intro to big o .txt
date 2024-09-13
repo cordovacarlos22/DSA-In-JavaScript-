@@ -1,0 +1,288 @@
+##BIG O NOTATION (https://cs.slides.com/colt_steele/big-o-notation).
+
+Big o NOTATION helps us understan HOW LONG(TIME COMPLEXITIE ) and algorithm will take to run or HOW MUCH (SPACE COMPLEXITIE) memory it will need as the ammount of data is handle grows. 
+
+warning Theres a little bit of Math involve when learning Big O. 
+
+Objectives.
+
+1. Motivete the need for something like BIG O NOTATION
+2.Describe what Big o notation is 3.Simplify BIG O NOTATION expressions.
+4.Define 'time complexity' and 'space complexity'
+5.evaluate the time complexity and space complexity of different big o notation algorithm using but o notation. 
+6.Describe what an algorithm is. 
+
+
+
+
+##transcript intro to BIG O  :
+Hey, welcome back.
+
+So this is the first real section of the course, and we're kicking it off with something really important.
+
+Something big.
+
+It's called Big O notation.
+
+And when I say big, I don't mean that it's long or difficult even.
+
+It's big in significance.
+
+It's something that we basically I had no choice but to start the course off with this topic because
+
+at least if I wanted to make it a good course, because it's going to come up in I don't I won't say
+
+every single video, but maybe 70% of the videos and the rest of the course don't hold me to that.
+
+But a lot of videos, a significant number.
+
+We're going to refer back to what we talk about in this section.
+
+So before I even explain what it is, I have a quick warning.
+
+There's a bit of math in this section and I'm warning you not to scare you away, but actually to encourage
+
+you to push through it.
+
+If you do struggle with math or if you're someone who hasn't heard the word logarithm ever, or in ten
+
+or 20 years, that's going to come up in this section at the end.
+
+But don't panic, because what we're going to do here in this section is establish a framework for talking
+
+about code in the rest of the course.
+
+And that does involve some math up front, but it means that the rest of the course isn't going to be
+
+some of it will be mathy, definitely.
+
+But it's not this is not indicative of what the rest of the course will look like.
+
+So just push through it.
+
+If I mean, if you like math, great.
+
+If you have some problems with this section, just remember that the entire course isn't like this and
+
+we're just getting it out of the way.
+
+Because, like I said, it has to come first.
+
+I don't really have a choice.
+
+Okay.
+
+Sorry if I scared anybody there.
+
+Let's talk about the objectives for this section.
+
+So in this video, we're going to start by just talking about the need for something like Big O notation.
+
+I haven't even mentioned what it is, so we're going to get to that.
+
+Then we're going to describe what it is.
+
+So why we care about it, what it is we're going to learn to simplify.
+
+Big O expressions will define time, complexity and space.
+
+Complexity will evaluate time, complexity and space complexity of different algorithms using big o
+
+notation.
+
+And then we'll describe what a logarithm is.
+
+A bit of math at the end there.
+
+So I know it's a lot, but we're going to start with this first bullet point.
+
+Motivate the need for something like Big O notation.
+
+So what is the idea here?
+
+Well, this course is about algorithms.
+
+It's about solving challenges.
+
+It's about computer science and data structures.
+
+But for every topic in this course, there's ten, 20 different implementations or solutions that could
+
+work probably way more.
+
+How do we know what's best?
+
+So let's scale it down a bit just to a single problem.
+
+Let's say that there are two valid solutions to a problem.
+
+They both work and they're different, not just in names or variable names or something, but totally
+
+different in approaches.
+
+One uses a loop, the other uses, I don't know, a list or a string or something to accomplish the
+
+same task.
+
+How do we know which one is best?
+
+That's really what Big O is about.
+
+It's a system.
+
+It's a way of generalizing code and talking about it and comparing code and its performance to other
+
+pieces of code.
+
+Okay.
+
+So here's a more concrete example.
+
+Write a function that accepts a string input and returns a reversed copy.
+
+If I asked you to do this, which maybe some enterprising students will do this and come up with some
+
+creative solutions off the top of my head, I can come up with three ish solutions, different approaches,
+
+and I'm sure there are way more out there.
+
+I actually found this post on StackOverflow that has ten different implementations in JavaScript and
+
+they're all different.
+
+Like it said, it's not just a different variable name, it's not just switching a for loop for a while
+
+loop.
+
+There are different approaches.
+
+How do we know if all of these work?
+
+Here's one using a for loop and an array.
+
+Here's one that uses no loops and it's no arrays.
+
+It's all actually, I guess there is an array in there at one point, but it's all built in methods.
+
+How do we know which one is best?
+
+Well, we'll get there.
+
+But wouldn't it be nice if there was sort of a system for classifying code or for comparing it, which
+
+I've already spoiled it and said, that's a big O sort of is think of it sort of like if we're talking
+
+about earthquakes.
+
+This was a seismology one on one class.
+
+Very early on, I would start off by talking about the Richter scale because then that allows us to
+
+talk about earthquakes and compare them to one another so that instead of just saying, Oh, there's
+
+a big earthquake and then a bigger one over there, we can say there was a 7.5 and then a 9.2 over there,
+
+and that puts things into context.
+
+That's kind of not a great analogy, but the idea is that we can assign labels, generalized labels,
+
+to our code.
+
+So instead of saying something like great or or awful for our code, we can have a numeric representation
+
+of the performance of code.
+
+So that's what Big O is going to give us rather than colors and text like, great.
+
+It's going to look a little bit different.
+
+It might look a little mathy, but it's actually pretty straightforward once you get past the first
+
+hurdle of it looking very foreign and weird.
+
+So one last point I want to make.
+
+Some of you might be wondering if I asked you to write a function that reverses string and you get it
+
+to work, doesn't it only matter that you get it to work?
+
+Like why does it matter what's best?
+
+The solution you come up with is the best.
+
+And in some ways I think that depending on your project in the context that's true.
+
+The best solution is the one that you can get to work.
+
+But when we're talking about things like interviewing technical interview code challenges or working
+
+at a large company where you're working with a huge data set, let's say hundreds of millions of pieces
+
+of data where one algorithm implementation could save an hour every time it runs compared to another
+
+implementation.
+
+Performance matters at that point, and there is an actual best algorithm or best solution.
+
+So it's important to have a precise vocabulary to talk about how our code performs.
+
+So even if you're content with your solution to something, it's helpful to be able to understand how
+
+it compares, how it performs compared to others.
+
+It's also good for discussing trade offs between different approaches because often it's not as cut
+
+and dry as I made it seem.
+
+It's not that one solution is always great and the other one is always terrible.
+
+Sometimes one solution might be great at handling really large data sets, pieces of data.
+
+Another one might always be very consistent and the time that it takes, but it might take more time.
+
+Up front, there's trade offs.
+
+So it's not always just this is the best.
+
+Also, if you're trying to debug your code, it helps to understand things that are slowing it down,
+
+not just looking for errors, but let's say that your code is working.
+
+But for some reason it's taking a lot longer than you expect or your computer is lagging and freaking
+
+out in the browser.
+
+When you execute some function, it helps if you understand some of the things we're going to talk about
+
+in this section.
+
+In Big O notation, you can actually pinpoint where some problems might arise.
+
+So it helps us identify inefficient points.
+
+And then finally you should care because it comes up in interviews a lot.
+
+A lot of times an interviewer will say something like, Tell me the big O of this algorithm, or if
+
+this function that you've written or Here's three functions, what's the big O?
+
+That will make sense in a bit.
+
+But it's important just to know for interviews, I said it's less important because hopefully you're
+
+learning it to actually understand things and to help you understand your code better and talk about
+
+your code better, rather than just directly trying to master it for an interview.
+
+But interviews are important, so no judgment there either.
+
+So I'm going to leave this video off here.
+
+I'm trying to keep things more compact.
+
+Don't want any rambling videos.
+
+And the next video we're going to pick up with a real example, some code, and start to analyze how
+
+efficient it is.
+

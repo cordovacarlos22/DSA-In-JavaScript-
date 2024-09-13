@@ -1,0 +1,19 @@
+function sortedSquarredArray(array){
+    //write code here.make sure to return desired array 
+    
+     // 2.then after loop and squared nums are done, we are going to need a way to stotere data.
+     // 3.we could save them on a auxiliary array to then be sorted.
+     let result = []
+    
+     // TODO: return  a new array with numbers  squared and sorted in a ASC ORDER.
+    //1. to create this algorithm we have to loop over each element on the array and multiplie it by its own. (3 * 3 = 9)
+    for(let i = 0 ; i < array.length;i++){
+        result.push(array[i] * array[i]);
+    };
+    // 4. find a way to sort number in ASC order. NOT SURE YET HOW TO IMPLEMENT THIS.
+    // 5 .return result
+    return result.sort((a,b)=> a-b); // return result array and uses sort method to sort number in ASC ORDER
+        
+    // code is O(N) => because it grow is a linear way (depenting on the length of N).
+
+};

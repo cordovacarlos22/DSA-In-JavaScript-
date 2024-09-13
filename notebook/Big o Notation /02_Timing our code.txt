@@ -1,0 +1,201 @@
+Timing our code 
+
+when testing our code what does better mean ? 
+
+1.faster ? 
+2. less memory used ? 
+
+how could we test code ? 
+
+why not to use timer function .
+
+we could face a problem if we use timer function because
+1. different machines will record different times.
+2. the same machine will record different times.
+3. for fast algorithms ,speed measurement may not be precise enough.
+
+thats where BIG O NOTATION COMES IN. 
+
+
+transcript
+All right.
+So let's take a look at a more concrete example.
+Let's compare two solutions to the same problem.
+All right.
+So here's our problem.
+Suppose you want to write a function that calculates the sum of all numbers from one up to and including
+some number.
+N So if we plug three in, we should get one plus two plus three, which is six, the most common or
+the easiest to come up with.
+Solution.
+This is the one that comes to my mind first is to basically create a total variable accumulator and
+loop through all those numbers and add them in one at a time, starting at one all the way up until
+N.
+So that's what I've done here.
+We have a for loop.
+Total variable starts at zero and at the end we return total.
+We start the loop at one, we go up until n each time through total plus equals.
+I actually have there we go.
+I have it open as a snippet here.
+If you're not familiar with snippets, basically it's a way for me to just rather than copy and paste
+code into the console and have to deal with losing it and rerunning it.
+And that pain in Chrome, you can go to the Sources tab and then there's a Snippets tab you can click
+on and it allows you to create new snippets.
+I have a couple of them here and I'm going to use them in this course quite frequently as an easy way
+to save code and execute it.
+And just to show you how it works, here's the same add up to function and I'm printing it out at the
+bottom of the result of adding up to six.
+So that should be six plus five plus four plus three plus two plus one to execute it.
+I can either click over here or you can see the shortcut it suggests to me on a mac is command enter.
+It will say the correct shortcut on a PC.
+I think it's control enter.
+So if I do that now I get 21.
+If I did it with three or there we go, I get six.
+If I did it with 100, I get 5050.
+So that's just to demonstrate that that works.
+Next, there's a second solution.
+There's more than these two, but these are two that I'm going to use because they illustrate my point.
+This one is definitely less intuitive.
+As you can see, it's a lot shorter.
+It's a single line which doesn't necessarily make it better, but it's very different.
+There's no loop involved.
+What we're doing is it's more of a mathematical formula.
+We take N and we multiply it by N plus one divided by two.
+And where this is derived from, I'm not going to go into I do have slides on it or a slide that talks
+about how we arrive with this formula.
+If you want to check it out, you can.
+But it is not it's not the focus of this video.
+So I don't want to distract from the actual focus, which is evaluating and comparing these pieces of
+code, not actually diving into how we write them.
+So just to show you this one, it does work.
+I have another snippet over here.
+I can run the same thing.
+Let's do it with six again and I'll do command enter to execute and I get 21 and just to walk through
+what happens there, it's the equivalent of taking six plus 1/1, which is going to give us seven,
+and then we multiply that by six, which gives us 42, and then we divide by two, which gives us 21.
+So it does work.
+It gives us the same answer in the end.
+Again, how it works, we'll leave that.
+B All right.
+So we establish there are two working solutions, which one is better?
+And of course, the first thing that we could ask is what does better actually mean?
+Does it mean the faster code in seconds or milliseconds?
+Does it mean the code that's fastest when we're adding a small number versus a large number?
+Let's say we want to benchmark it out when we add up all the numbers between zero in 1 billion, is
+that a good test or is it about how much memory is used?
+Is it the number of variables that are created, the data that is stored each time that that function
+is called?
+Or what about something like readability, legibility?
+How important is that?
+Is that better?
+Or brevity?
+That's not on here.
+But a lot of people care about that.
+They like to minimize the the length, the number of characters used in their programming.
+Not my style personally, but definitely valid.
+All of these are valid concerns and it really comes down to the situation.
+But I think most people would agree that the first two, especially for now, we're going to focus on
+speed.
+We'll come back to memory usage in a bit.
+But these two often can be more important than something like readability, and unfortunately they often
+come at the expense of readability.
+And that's sort of the balancing act of of writing good code is writing efficient code that doesn't
+use up a ton of memory, but also is still readable and doesn't look like complete gibberish.
+So we're going to talk about basically all how all of these play together throughout the entire course.
+It will be a recurring theme, but we're going to focus on evaluating speed, how long code takes to
+execute that.
+We're going to start.
+So how do we do that?
+Well, the simplest way would be to use something like built in timing functions, something like this
+where we have our first add up to.
+And then I use a function called or a method called performance now, which in the browser is just going
+to tell me the number of milliseconds since the document was created, basically since I opened the
+window.
+And then so I'm going to save that to a variable before I call add up to then I'm going to call add
+up to with what did I do?
+So it's a billion.
+I think it's a billion.
+So I'm going to call it with a large number.
+And then after that finishes, I'm going to check performance now again, which should have incremented
+a bunch of milliseconds, most likely.
+So I have two numbers, then I just subtract them the first or the second time, minus the first time,
+and I divide it by 1000 because it's in milliseconds and I want to work in seconds.
+We don't have to do that last part and I print it out.
+So this should work and I actually have a snippet right here.
+Same thing.
+So add up to our same one from before and we're calling it with 1 billion and we're going to print out
+how long elapsed.
+Let me clear my console first and I'm going to execute it.
+There we go.
+1.2575.
+So on seconds, let me do it one more time.
+And what you'll actually see.
+I don't think I executed it.
+There we go.
+Is that it varies so it changes even on my own computer.
+Nothing really has changed.
+I haven't added code.
+I haven't changed the numbers here.
+It's the exact same code, but we're getting a different output.
+Before I forget, let's go over to the second solution.
+So the exact same number.
+Let me just make sure I didn't leave off or add a zero.
+Yes, they are the same and I'm doing the same thing.
+Taking performance out now at the beginning and performance out now at the end.
+I guess I should show what that looks like.
+You can see that it's kind of a large number at this point because I've had this open for a number of
+minutes.
+If I refresh the page, though, which I just did.
+Now it's at 2000 milliseconds, which is 2 seconds.
+And now if I did it again, we're at 6.6 seconds.
+And if we subtract the two, it's 4 seconds roughly in between.
+Anyway, we're doing the same thing here.
+Okay, so now if I run this, you can see we get a way smaller number, but it's still actually I guess
+it doesn't look like it's changing here, is it?
+The measurements, the differences are too small, really, to capture.
+But my point is that this is significantly shorter in duration with the same data as this one.
+Here we go, 1.2 4 seconds compared to basically 0 seconds.
+So that seems like a good sign for this solution.
+It seems like it's much more efficient and that's great.
+But this process is not the most reliable of manually timing things like this before and after and comparing
+it to the other function.
+And it's not that easy for us to talk about.
+How would I actually write down?
+How would I give it a label of how efficient this one is compared to this one?
+Is it based off of the percentage of speed?
+Is it the I subtract the number of seconds or milliseconds, it gets a little blurry.
+This brings us to the problem with time, which I'm reserving for my end of life memoir title.
+The problem with time, it's just a nice little sound, very deep.
+So the first is that different machines will record different times, so it's not reliable depending
+on the specifications of a machine and what's currently happening on that machine, what code is running
+the time the results you can get will be different.
+That doesn't really mean that we'll get the opposite results where the first solution is suddenly faster
+than the second one.
+But it means that the margins could change.
+The actual measurements could be different and are almost guaranteed to be different times.
+And as we saw, the same machine will record different times.
+So in my browser I just did the exact same code, that first example, and it differed each time by
+a little bit, which isn't really a problem, but it still shows that it's not precise and that we can't
+rely on that.
+And second of all, our third of all, I guess, is that for fast algorithms, things that are happening
+on a really, really fast scale, speed measurements might not be precise enough.
+We have two or three or four algorithms and they're all super fast and they're doing something very
+quickly.
+There still is one that is going to be fastest or most efficient, but if our timing functions can't
+figure it out because they're the smallest interval of time that can be measured isn't good enough,
+then it doesn't really help us.
+So how do we walk through our code and actually talk in general terms about which code is better without
+having to go and time it?
+So I want to be clear.
+I'm not saying that timing your code is a bad idea.
+I do it all the time, but I'm more saying is that it would be cool if there was another way that didn't
+involve having to set up a new file and actually go through the process of timing our code.
+What if our code takes an hour?
+Something massive, and I'm comparing it to another version that takes 4 hours.
+I don't want to have to run a test to figure out which one is faster.
+We want to be able to assign a value to in general terms, talk about how code compares to other code
+without having to go through all of this.
+And that's where big notation comes in.
+And that's coming up next.
+Cliff hanger, sorry.
+
